@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="bs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Players - Football Hub</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="logo">⚽</div>
+            <h1>Football Hub</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="/teams">Timovi</a>
+            <a href="/players" class="active">Igrači</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero small">
+        <h2>Svi igrači</h2>
+        <p class="lead">Tabela sa osnovnim informacijama i ratingom.</p>
+    </section>
+
+    <section class="players-table-wrap">
+        <table class="players-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Ime</th>
+                <th>Godine</th>
+                <th>Pozicija</th>
+                <th>Rating</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p,iterStat : ${players}">
+                <td th:text="${iterStat.count}">1</td>
+                <td th:text="${p.name}">Player name</td>
+                <td th:text="${p.age}">24</td>
+                <td th:text="${p.position}">Mid</td>
+                <td><span class="rating" th:text="${p.rating}">8.1</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">© Football Hub — Demo aplikacija za Web programiranje</div>
+</footer>
+</body>
+</html>

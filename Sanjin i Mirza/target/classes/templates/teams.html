@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="bs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Teams - Football Hub</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="logo">⚽</div>
+            <h1>Football Hub</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="/teams" class="active">Timovi</a>
+            <a href="/players">Igrači</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h2>Timovi</h2>
+        <p class="lead">Pregled svih timova — klikni na ime tima za detalje i roster.</p>
+    </section>
+
+    <section class="teams-grid">
+        <div th:each="team : ${teams}" class="team-card">
+            <div class="team-header">
+                <!-- ✅ Dodan logo slike -->
+                <img class="team-logo"  src="/images/logo.jpg" />
+                <div class="team-info">
+                    <a th:href="@{'/team/' + ${team.id}}" class="team-name" th:text="${team.name}">Team name</a>
+                    <div class="team-meta">
+                        <span th:text="${team.city}">City</span> •
+                        <span th:text="${team.coach}">Coach</span>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="team-players">
+                <li th:each="p,iterStat : ${team.players}">
+                    <span th:text="${iterStat.count}">1</span>.
+                    <span th:text="${p.name}">Player Name</span>
+                    <span class="pos" th:text="${p.position}">Pos</span>
+                </li>
+            </ul>
+
+            <div class="team-actions">
+                <a th:href="@{'/team/' + ${team.id}}" class="btn">Detalji</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">© Football Hub — Demo aplikacija za Web programiranje</div>
+</footer>
+</body>
+</html>
