@@ -3,15 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title th:text="${team.name} + ' - Football Hub'">Team Details</title>
+    <title th:text="${team.name} + ' - MS Sports Club'">Detalji timova</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 <header class="site-header">
     <div class="container header-inner">
         <div class="brand">
-            <div class="logo">⚽</div>
-            <h1>Football Hub</h1>
+            <div class="logo">
+                <img class="logo" th:src="@{/css/images/logo.jpeg}" alt="MS Sports Club Logo">
+            </div>
+            <h1>MS Sports Club</h1>
         </div>
         <nav class="main-nav">
             <a href="/teams">Timovi</a>
@@ -48,7 +50,6 @@
                     <div class="player-meta">Age: <span th:text="${p.age}">24</span> • Rating: <span th:text="${p.rating}">8.1</span></div>
                 </div>
                 <div class="player-actions">
-                    <!-- primjer interakcije: link na profil (za sada samo placeholder) -->
                     <a href="#" class="btn small">Profil</a>
                 </div>
             </div>
@@ -57,7 +58,7 @@
 </main>
 
 <footer class="site-footer">
-    <div class="container">© Football Hub — Demo aplikacija za Web programiranje</div>
+    <div class="container">© MS Sports Club — Demo aplikacija za Web programiranje</div>
 </footer>
 </body>
 </html>

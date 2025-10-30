@@ -3,15 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Teams - Football Hub</title>
+    <title>MS Sports Club</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 <header class="site-header">
     <div class="container header-inner">
         <div class="brand">
-            <div class="logo">⚽</div>
-            <h1>Football Hub</h1>
+            <div class="logo">
+                <img class="logo" th:src="@{/css/images/logo.jpeg}" alt="MS Sports Club Logo">
+            </div>
+            <h1>MS Sports Club</h1>
         </div>
         <nav class="main-nav">
             <a href="/teams" class="active">Timovi</a>
@@ -29,8 +31,7 @@
     <section class="teams-grid">
         <div th:each="team : ${teams}" class="team-card">
             <div class="team-header">
-                <!-- ✅ Dodan logo slike -->
-                <img class="team-logo" th:src="@{'/images/' + ${team.logo}}" alt="Team logo" />
+                <img class="team-logo" th:src="@{'/css/images/' + ${team.logo}}" alt="Team logo" />
                 <div class="team-info">
                     <a th:href="@{'/team/' + ${team.id}}" class="team-name" th:text="${team.name}">Team name</a>
                     <div class="team-meta">
@@ -56,7 +57,7 @@
 </main>
 
 <footer class="site-footer">
-    <div class="container">© Football Hub — Demo aplikacija za Web programiranje</div>
+    <div class="container">© MS Sports Club — Demo aplikacija za Web programiranje</div>
 </footer>
 </body>
 </html>

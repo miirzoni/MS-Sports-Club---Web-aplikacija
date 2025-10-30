@@ -7,7 +7,7 @@ public class Player {
     private String position;
     private double rating;
 
-    public Player(Long id, String name, int age, String position, double rating) {
+    public Player(Long id, String name, int age, String position, double ratin) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -21,9 +21,13 @@ public class Player {
     public String getPosition() { return position; }
     public double getRating() { return rating; }
 
+
+
     public void setId(Long id) { this.id = id; }
     public void setName(String name) { this.name = name; }
     public void setAge(int age) { this.age = age; }
     public void setPosition(String position) { this.position = position; }
     public void setRating(double rating) { this.rating = rating; }
+
+
 }
