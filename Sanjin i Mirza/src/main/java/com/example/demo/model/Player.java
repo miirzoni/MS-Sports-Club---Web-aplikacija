@@ -7,7 +7,7 @@ public class Player {
     private String position;
     private double rating;
 
-    public Player(Long id, String name, int age, String position, double ratin) {
+    public Player(Long id, String name, int age, String position, double rating) {
         this.id = id;
         this.name = name;
         this.age = age;
