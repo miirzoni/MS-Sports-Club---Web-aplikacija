@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Treneri</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Lista trenera</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Specijalizacija</th>
+        <th>Godine iskustva</th>
+    </tr>
+    <tr th:each="t : ${trainers}">
+        <td th:text="${t.id}"></td>
+        <td th:text="${t.ime}"></td>
+        <td th:text="${t.prezime}"></td>
+        <td th:text="${t.specijalizacija}"></td>
+        <td th:text="${t.godineIskustva}"></td>
+    </tr>
+</table>
+
+<h2>Dodaj novog trenera</h2>
+<form th:action="@{/trainers/add}" th:object="${trainer}" method="post">
+    <label>Ime:</label>
+    <input type="text" th:field="*{ime}"><br>
+    <label>Prezime:</label>
+    <input type="text" th:field="*{prezime}"><br>
+    <label>Specijalizacija:</label>
+    <input type="text" th:field="*{specijalizacija}"><br>
+    <label>Godine iskustva:</label>
+    <input type="number" th:field="*{godineIskustva}"><br>
+    <button type="submit">Dodaj</button>
+</form>
+</body>
+</html>
