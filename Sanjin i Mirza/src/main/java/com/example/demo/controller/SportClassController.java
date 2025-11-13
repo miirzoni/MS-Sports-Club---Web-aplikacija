@@ -29,8 +29,15 @@ public class SportClassController {
     }
 
     @PostMapping("/add")
-    public String addClass(@ModelAttribute SportClass sportClass) {
+    public String addClass(@ModelAttribute SportClass sportClass,
+                           @RequestParam("trainer.id") Long trainerId) {
+
+        Trainer trainer = trainerRepository.findById(trainerId)
+                .orElseThrow(() -> new IllegalArgumentException("Ne postoji trener sa id: " + trainerId));
+
+        sportClass.setTrainer(trainer);
         sportClassRepository.save(sportClass);
+
         return "redirect:/classes";
     }
 }

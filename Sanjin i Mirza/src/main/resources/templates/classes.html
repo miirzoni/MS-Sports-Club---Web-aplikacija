@@ -1,38 +1,77 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="bs">
 <head>
-    <meta charset="UTF-8">
-    <title>Sportski časovi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sportski časovi - MS Sports Club</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h1>Lista sportskih časova</h1>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="logo">
+                <img class="logo" th:src="@{/css/images/logo.jpeg}" alt="MS Sports Club Logo">
+            </div>
+            <h1>MS Sports Club</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="/teams">Timovi</a>
+            <a href="/players">Igrači</a>
+            <a href="/trainers">Treneri</a>
+            <a href="/classes" class="active">Časovi</a>
+        </nav>
+    </div>
+</header>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Naziv</th>
-        <th>Opis</th>
-        <th>Trener</th>
-    </tr>
-    <tr th:each="c : ${classes}">
-        <td th:text="${c.id}"></td>
-        <td th:text="${c.naziv}"></td>
-        <td th:text="${c.opis}"></td>
-        <td th:text="${c.trainer != null ? c.trainer.ime + ' ' + c.trainer.prezime : 'N/A'}"></td>
-    </tr>
-</table>
+<main class="container">
+    <section class="hero small">
+        <h2>Lista sportskih časova</h2>
+        <p class="lead">Tabela sa osnovnim informacijama o časovima i trenerima.</p>
+    </section>
 
-<h2>Dodaj novi sportski čas</h2>
-<form th:action="@{/classes/add}" th:object="${sportClass}" method="post">
-    <label>Naziv:</label>
-    <input type="text" th:field="*{naziv}" /><br>
-    <label>Opis:</label>
-    <input type="text" th:field="*{opis}" /><br>
-    <label>Trener:</label>
-    <select th:field="*{trainer}" required>
-        <option th:each="t : ${trainers}" th:value="${t}" th:text="${t.ime + ' ' + t.prezime}"></option>
-    </select><br>
-    <button type="submit">Dodaj čas</button>
-</form>
+    <section class="players-table-wrap">
+        <table class="players-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th>Trener</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${classes}">
+                <td th:text="${c.id}">1</td>
+                <td th:text="${c.naziv}">Naziv časa</td>
+                <td th:text="${c.opis}">Opis časa</td>
+                <td th:text="${c.trainer != null ? c.trainer.ime + ' ' + c.trainer.prezime : 'N/A'}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="hero small" style="margin-top:20px;">
+        <h2>Dodaj novi sportski čas</h2>
+        <form th:action="@{/classes/add}" th:object="${sportClass}" method="post">
+            <label>Naziv:</label>
+            <input type="text" th:field="*{naziv}" required /><br>
+
+            <label>Opis:</label>
+            <input type="text" th:field="*{opis}" required /><br>
+
+            <label>Trener:</label>
+            <select th:field="*{trainer.id}" required>
+                <option th:each="t : ${trainers}" th:value="${t.id}" th:text="${t.ime + ' ' + t.prezime}"></option>
+            </select><br>
+
+            <button type="submit" class="btn">Dodaj čas</button>
+        </form>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">© MS Sports Club — Demo aplikacija za Web programiranje</div>
+</footer>
 </body>
 </html>
