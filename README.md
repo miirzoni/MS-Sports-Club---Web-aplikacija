@@ -83,3 +83,56 @@ Drugim riječima:
 <img width="1365" height="633" alt="1" src="https://github.com/user-attachments/assets/f8930715-561a-44ae-84d3-79f96ff02acf" />
 
 
+# Lab-2: Nadogradnja i REST API
+
+# Novi model: Trainer
+
+# Opis logike i svrha:
+
+Novi model Trainer predstavlja trenera sportskih časova.
+
+Omogućava dodavanje trenera, praćenje njihovih specijalizacija i godina iskustva.
+
+Povezan je sa modelom SportClass (1:N veza, jedan trener može imati više časova).
+
+# Relacije:
+
+1 Trainer → više SportClass
+
+SportClass → tačno jedan Trainer
+
+# Funkcionalnosti controller-a
+# Thymeleaf controller (TrainerController)
+
+Prikazuje listu svih trenera
+
+Omogućava dodavanje novih trenera putem forme
+
+Podaci se spremaju u bazu podataka
+
+# REST controller (TrainerRestController)
+
+Endpoint vraća sve trenere u JSON formatu
+
+Omogućava integraciju s front-endom ili drugim aplikacijama
+
+# SportClassController
+
+Omogućava prikaz i dodavanje sportskih časova
+
+Veza sa trenerom se uspostavlja preko izabranog trenera iz forme
+
+# Konfiguracija baze
+
+Za aplikaciju je korištena MySQL baza podataka
+
+Baza je kreirana i administrirana pomoću MySQL Workbench
+
+Entiteti iz aplikacije su povezani s bazom pomoću Spring Data JPA
+
+Svi podaci se čuvaju u MySQL bazi, in-memory liste više nisu korištene
+
+# Screenshotovi aplikacije: 
+<img width="1365" height="673" alt="treneri" src="https://github.com/user-attachments/assets/8ad4f2d1-595c-4b05-a744-b754270738e3" />
+<img width="1365" height="675" alt="casovi" src="https://github.com/user-attachments/assets/8143a9c7-4a62-4470-b905-d78bbec55598" />
+
