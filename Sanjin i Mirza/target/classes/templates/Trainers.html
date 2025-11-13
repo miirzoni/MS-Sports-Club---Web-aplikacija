@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="bs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Treneri - MS Sports Club</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="logo">
+                <img class="logo" th:src="@{/css/images/logo.jpeg}" alt="MS Sports Club Logo">
+            </div>
+            <h1>MS Sports Club</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="/teams">Timovi</a>
+            <a href="/players">Igrači</a>
+            <a href="/trainers" class="active">Treneri</a>
+            <a href="/classes">Časovi</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero small">
+        <h2>Lista trenera</h2>
+        <p class="lead">Tabela sa osnovnim informacijama o trenerima i mogućnost dodavanja novih.</p>
+    </section>
+
+    <!-- Tabela sa trenerima -->
+    <section class="players-table-wrap">
+        <table class="players-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Specijalizacija</th>
+                <th>Godine iskustva</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="t : ${trainers}">
+                <td th:text="${t.id}">1</td>
+                <td th:text="${t.ime}">Ime</td>
+                <td th:text="${t.prezime}">Prezime</td>
+                <td th:text="${t.specijalizacija}">Specijalizacija</td>
+                <td th:text="${t.godineIskustva}">0</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Forma za dodavanje trenera -->
+    <section class="hero small" style="margin-top:20px;">
+        <h2>Dodaj novog trenera</h2>
+        <form th:action="@{/trainers/add}" th:object="${trainer}" method="post">
+            <label>Ime:</label>
+            <input type="text" th:field="*{ime}" required /><br>
+
+            <label>Prezime:</label>
+            <input type="text" th:field="*{prezime}" required /><br>
+
+            <label>Specijalizacija:</label>
+            <input type="text" th:field="*{specijalizacija}" required /><br>
+
+            <label>Godine iskustva:</label>
+            <input type="number" th:field="*{godineIskustva}" min="0" required /><br>
+
+            <button type="submit" class="btn">Dodaj trenera</button>
+        </form>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">© MS Sports Club — Demo aplikacija za Web programiranje</div>
+</footer>
+</body>
+</html>

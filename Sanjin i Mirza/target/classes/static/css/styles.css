@@ -1,23 +1,54 @@
-/* styles.css - fudbalska tema za demo aplikaciju */
-
-/* Basic reset */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Arial, sans-serif; }
-:root{
-    --accent:#0b6e4f;
-    --accent-dark:#08543b;
-    --muted:#6b7280;
-    --card:#ffffff;
-    --bg:#0f1724;
+/* -------------------- RESET & VARIJABLE -------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-/* Body + container */
-body { background: linear-gradient(180deg,#071226 0%, #071a2a 60%); color: #e6eef6; min-height:100vh; }
-.container { width: min(1100px, 94%); margin: 0 auto; padding: 24px 0; }
+:root {
+    --accent: #0b6e4f;
+    --accent-dark: #08543b;
+    --muted: #6b7280;
+    --card: #ffffff;
+    --bg: #0f1724;
+}
 
-/* Header */
-.site-header { background: linear-gradient(90deg, rgba(3,37,65,0.85), rgba(0,40,30,0.85)); border-bottom: 1px solid rgba(255,255,255,0.04); position: sticky; top:0; z-index: 30; }
-.header-inner { display:flex; align-items:center; justify-content:space-between; padding: 12px 0; }
-.brand { display:flex; align-items:center; gap:12px; }
+/* -------------------- BODY & CONTAINER -------------------- */
+body {
+    background: linear-gradient(180deg, #071226 0%, #071a2a 60%);
+    color: #e6eef6;
+    min-height: 100vh;
+}
+
+.container {
+    width: min(1100px, 94%);
+    margin: 0 auto;
+    padding: 24px 0;
+}
+
+/* -------------------- HEADER -------------------- */
+.site-header {
+    background: linear-gradient(90deg, rgba(3,37,65,0.85), rgba(0,40,30,0.85));
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .logo {
     width: 60px;
     height: 60px;
@@ -25,29 +56,109 @@ body { background: linear-gradient(180deg,#071226 0%, #071a2a 60%); color: #e6ee
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(11,110,79,0.16);
 }
-.brand h1 { font-size:20px; color: #f8fbff; }
 
-/* Nav */
-.main-nav a { color: rgba(230,238,246,0.85); text-decoration:none; margin-left:18px; padding:8px 12px; border-radius:6px; }
-.main-nav a.active, .main-nav a:hover { background: rgba(255,255,255,0.03); color: #fff; }
+.brand h1 {
+    font-size: 20px;
+    color: #f8fbff;
+}
 
-/* Hero */
-.hero { padding: 28px 0 8px 0; }
-.hero.small { padding: 16px 0; }
-.hero h2 { font-size:28px; color:#fff; margin-bottom:6px; }
-.lead { color:var(--muted); margin-top:6px; }
+/* -------------------- NAVIGACIJA -------------------- */
+.main-nav a {
+    color: rgba(230,238,246,0.85);
+    text-decoration: none;
+    margin-left: 18px;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
 
-/* Teams grid */
-.teams-grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin-top:16px; }
-.team-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px; border-radius:12px; box-shadow: 0 6px 18px rgba(2,6,23,0.6); border: 1px solid rgba(255,255,255,0.03); transition: transform 0.2s ease, box-shadow 0.3s ease; }
-.team-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(2,6,23,0.8); }
-.team-header { display:flex; gap:12px; align-items:center; }
-.team-badge { width:56px; height:56px; background: var(--accent); border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; color:#fff; box-shadow: 0 8px 20px rgba(11,110,79,0.14); }
-.team-badge.large { width:96px; height:96px; font-size:36px; }
-.team-info .team-name { display:block; font-size:18px; color:#fff; text-decoration:none; margin-bottom:4px; }
-.team-meta { color:var(--muted); font-size:13px; }
+.main-nav a.active,
+.main-nav a:hover {
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+}
 
-/* ✅ Novi stil za timske logoe */
+/* -------------------- HERO -------------------- */
+.hero {
+    padding: 28px 0 8px 0;
+}
+
+.hero.small {
+    padding: 16px 0;
+}
+
+.hero h2 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.lead {
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+/* -------------------- TEAMS GRID -------------------- */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 16px;
+}
+
+.team-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(2,6,23,0.8);
+}
+
+.team-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.team-badge {
+    width: 56px;
+    height: 56px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(11,110,79,0.14);
+}
+
+.team-badge.large {
+    width: 96px;
+    height: 96px;
+    font-size: 36px;
+}
+
+.team-info .team-name {
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.team-meta {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* -------------------- TEAM LOGO -------------------- */
 .team-logo {
     width: 60px;
     height: 60px;
@@ -59,47 +170,175 @@ body { background: linear-gradient(180deg,#071226 0%, #071a2a 60%); color: #e6ee
     flex-shrink: 0;
     transition: transform 0.2s ease;
 }
+
 .team-logo:hover {
     transform: scale(1.05);
 }
 
-/* Players list inside card */
-.team-players { margin-top:12px; list-style:none; color:#dfe9f2; font-size:14px; }
-.team-players li { padding:6px 0; display:flex; justify-content:space-between; gap:12px; border-top: 1px dashed rgba(255,255,255,0.02); padding-top:8px; }
-.team-players .pos { color:var(--muted); font-size:12px; }
+/* -------------------- PLAYERS LIST -------------------- */
+.team-players {
+    margin-top: 12px;
+    list-style: none;
+    color: #dfe9f2;
+    font-size: 14px;
+}
 
-/* Buttons */
-.btn { background: var(--accent); color:white; padding:8px 12px; border-radius:8px; text-decoration:none; display:inline-block; font-weight:600; border: none; }
-.btn.small { padding:6px 8px; font-size:13px; }
+.team-players li {
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px dashed rgba(255,255,255,0.02);
+    padding-top: 8px;
+}
 
-/* Players table */
-.players-table-wrap { margin-top:12px; overflow:auto; background: rgba(255,255,255,0.02); border-radius:10px; padding:12px; }
-.players-table { width:100%; border-collapse:collapse; min-width:680px; }
-.players-table th, .players-table td { text-align:left; padding:10px 12px; border-bottom: 1px solid rgba(255,255,255,0.03); color:#e8f0f8; }
-.players-table thead th { color: #cfe6df; font-weight:700; }
+.team-players .pos {
+    color: var(--muted);
+    font-size: 12px;
+}
 
-/* Rating */
-.rating { background: rgba(255,255,255,0.04); padding:4px 8px; border-radius:6px; }
+/* -------------------- BUTTONS -------------------- */
+.btn {
+    background: var(--accent);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    border: none;
+}
 
-/* Team hero / details */
-.team-hero { display:flex; justify-content:space-between; align-items:center; gap:18px; background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px; border-radius:12px; margin-top:14px; }
-.team-hero-left { display:flex; gap:14px; align-items:center; }
-.team-stats { color:var(--muted); font-weight:600; text-align:right; }
+.btn.small {
+    padding: 6px 8px;
+    font-size: 13px;
+}
 
-/* Roster cards */
-.roster { margin-top:18px; }
-.players-cards { display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:12px; }
-.player-card { background: rgba(255,255,255,0.02); padding:12px; border-radius:12px; display:flex; gap:12px; align-items:center; border:1px solid rgba(255,255,255,0.03); }
-.player-photo { width:56px; height:56px; border-radius:8px; background: rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center; font-size:28px; }
-.player-info h4 { margin-bottom:6px; }
-.muted { color:var(--muted); font-size:13px; }
-.player-meta { font-size:13px; color:#dfe9f2; margin-top:6px; }
+/* -------------------- PLAYERS TABLE -------------------- */
+.players-table-wrap {
+    margin-top: 12px;
+    overflow: auto;
+    background: rgba(255,255,255,0.02);
+    border-radius: 10px;
+    padding: 12px;
+}
 
-/* Footer */
-.site-footer { margin-top:36px; padding:18px 0; text-align:center; color:var(--muted); font-size:14px; }
+.players-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 680px;
+}
 
-/* Responsive tweaks */
-@media (max-width:700px){
-    .team-hero { flex-direction:column; align-items:flex-start; }
-    .main-nav { display:flex; gap:8px; }
+.players-table th,
+.players-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    color: #e8f0f8;
+}
+
+.players-table thead th {
+    color: #cfe6df;
+    font-weight: 700;
+}
+
+/* -------------------- RATING -------------------- */
+.rating {
+    background: rgba(255,255,255,0.04);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+/* -------------------- TEAM HERO / DETAILS -------------------- */
+.team-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 14px;
+}
+
+.team-hero-left {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.team-stats {
+    color: var(--muted);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* -------------------- ROSTER -------------------- */
+.roster {
+    margin-top: 18px;
+}
+
+.players-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.player-card {
+    background: rgba(255,255,255,0.02);
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.player-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.player-info h4 {
+    margin-bottom: 6px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.player-meta {
+    font-size: 13px;
+    color: #dfe9f2;
+    margin-top: 6px;
+}
+
+/* -------------------- FOOTER -------------------- */
+.site-footer {
+    margin-top: 36px;
+    padding: 18px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 700px) {
+    .team-hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav {
+        display: flex;
+        gap: 8px;
+    }
 }
